@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const token = '6188940573:AAFFKaATxjb-CVXCZBPcdDkefsvfIcwK_60';
-const webAppUrl = 'https://spontaneous-heliotrope-c3647f.netlify.app';
+const webAppUrl = 'https://spontaneous-heliotrope-c3647f.netlify.app/';
 
 const bot = new TelegramBot(token, { polling: true });
 const app = express();
@@ -18,7 +18,7 @@ bot.on('message', async (msg) => {
 	if (text === '/start') {
 		await bot.sendMessage(chatId, 'Ниже появится кнопка, заполни форму', {
 			reply_markup: {
-				keyboard: [[{ text: 'Заполнить форму', web_app: { url: webAppUrl + '/form' } }]],
+				keyboard: [[{ text: 'Заполнить форму', web_app: { url: webAppUrl + 'form' } }]],
 			},
 		});
 
